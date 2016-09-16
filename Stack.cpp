@@ -38,13 +38,13 @@ Stack::Stack(){
 void Stack::push(int d){
 	
 	Node* newNode = new Node;
-	Node * current = NULL;
-	
+
 	newNode->setData(d);
 	
 	newNode->setNext(top);
 	
 	top = newNode;
+	
 	
 }
 int Stack::pop(){
@@ -54,17 +54,24 @@ int Stack::pop(){
 	
 	if (top == NULL){
 		
+		
 		printf("The Stack is empty.\n");
+		delete top;
+		
 		
 	}else if(top->getNext() == NULL){
 		
 		printf("Last number in the stack.\n");
 		popThisData = top->getData();
+		delete top;
 		top = NULL;
 		return popThisData;
+		
 	}else if(top->getNext()!= NULL){
+		Node* temp = top->getNext()
 		popThisData = top->getData();
-		top = top->getNext();
+		delete top;
+		top = temp;
 		return popThisData;
 	}
 	
@@ -80,5 +87,7 @@ void Stack::printStack(){
 		cout << current->getData() << "\t";
 		current = current->getNext();
 	}
+	
+	delete current;
 	
 }
