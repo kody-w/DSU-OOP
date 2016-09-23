@@ -87,6 +87,7 @@ int Stack::pop(){
 		return popThisData;
 		
 	}else if(top->getNext()!= NULL){
+
 		Node::decrementCount();
 		Node* temp = top->getNext();
 		popThisData = top->getData();
