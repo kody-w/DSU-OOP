@@ -68,7 +68,7 @@ int Stack::pop(){
 		return popThisData;
 		
 	}else if(top->getNext()!= NULL){
-		Node* temp = top->getNext()
+		Node* temp = top->getNext();
 		popThisData = top->getData();
 		delete top;
 		top = temp;
