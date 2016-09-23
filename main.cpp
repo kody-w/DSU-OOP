@@ -2,9 +2,13 @@
 #include <iostream>
 using namespace std;
 
+
 int main(){
 	
 	Stack s;
+	
+	
+	//cout << "The number of nodes is:" << Node::nodeCount << "\n";
 	
 	s.push(1);
 	s.printStack();
@@ -18,7 +22,7 @@ int main(){
 	s.printStack();
 	s.push(6);
 	s.printStack();
-	
+	//cout << "The number of nodes is:" << Node::nodeCount << "\n";
 	s.pop();
 	s.printStack();
 	s.pop();
@@ -37,7 +41,7 @@ int main(){
 	s.printStack();
 	s.pop();
 	s.printStack();
-	
+	//cout << "The number of nodes is:" << Node::nodeCount << "\n";
 	s.push(1);
 	s.printStack();
 	s.push(2);
@@ -45,7 +49,7 @@ int main(){
 	s.push(3);
 	s.printStack();
 	s.push(4);
-	
+	//cout << "The number of nodes is:" << Node::nodeCount << "\n";
 	s.pop();
 	s.printStack();
 	s.pop();
@@ -60,7 +64,7 @@ int main(){
 	s.printStack();
 	s.pop();
 	s.printStack();
-	
+	//cout << "The number of nodes is:" << Node::nodeCount << "\n";
 	
 	
 	return 0;

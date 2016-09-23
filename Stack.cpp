@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+int Node::nodeCount = 0; 
+
 Node::Node()
 {
 	data = 0;
@@ -29,6 +31,20 @@ Node* Node::getNext(){
 	return next;
 }
 
+void Node::incrementCount(){
+	
+	cout << "Nodes current in use in stack:\t" << nodeCount << "\n";
+	
+	nodeCount++;
+}
+
+void Node::decrementCount(){
+	
+	cout << "Nodes current in use in stack:\t" << nodeCount << "\n";
+	
+	nodeCount--;
+}
+
 Stack::Stack(){
 
 	top = NULL;
@@ -38,6 +54,8 @@ Stack::Stack(){
 void Stack::push(int d){
 	
 	Node* newNode = new Node;
+	
+	Node::incrementCount();
 
 	newNode->setData(d);
 	
@@ -50,7 +68,7 @@ void Stack::push(int d){
 int Stack::pop(){
 	
 	int popThisData;
-
+	
 	
 	if (top == NULL){
 		
@@ -62,26 +80,29 @@ int Stack::pop(){
 	}else if(top->getNext() == NULL){
 		
 		printf("Last number in the stack.\n");
+		Node::decrementCount();
 		popThisData = top->getData();
 		delete top;
 		top = NULL;
 		return popThisData;
 		
 	}else if(top->getNext()!= NULL){
-		Node* temp = top->getNext()
+		Node::decrementCount();
+		Node* temp = top->getNext();
 		popThisData = top->getData();
 		delete top;
 		top = temp;
 		return popThisData;
 	}
 	
-	
+	return 0;
 }
 void Stack::printStack(){
 	
 	Node* current = top;
 	
 	cout << "top --> bottom\n";
+	//cout << "Node Count: "<<  Node::nodeCount;
 	while(current != NULL){
 		
 		cout << current->getData() << "\t";
@@ -91,3 +112,5 @@ void Stack::printStack(){
 	delete current;
 	
 }
+
+
