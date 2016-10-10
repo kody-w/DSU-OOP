@@ -3,16 +3,18 @@
 
 class Node {
 	
-	
-	
 	private:
 		int data;
 		Node* next;
 		static int nodeCount;
-		
-		
+			
 	public:
-		
+	
+		Node operator=(const Node &ref);
+		Node operator+(const Node &ref);
+		Node operator-(const Node &ref);
+		Node operator*(const Node &ref);
+		Node operator/(const Node &ref);
 		Node();
 		void setData(int d);
 		int getData();
@@ -20,20 +22,22 @@ class Node {
 		Node* getNext();
 		static void incrementCount();
 		static void decrementCount();
-
 };
 
 class Stack{
 
 	private:
 		Node* top;
-		Node* bottom;
 		
 	public:
 		Stack();
 		void push(int data);
 		int pop();
 		void printStack();
+		
+		Stack operator=(const Stack &ref);
+		
+		Stack operator+(const Stack &ref);
 		
 };
 

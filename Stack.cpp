@@ -8,8 +8,38 @@ Node::Node()
 {
 	data = 0;
 	next = NULL;
-	
 }
+
+Node Node::operator=(const Node &ref){
+	Node n;
+	n.setData(ref.data);
+	n.setNext(NULL);
+	return n;
+}
+	
+Node Node::operator+(const Node &ref){
+	Node n;
+	n.setData(this->data + ref.data);
+	return n;
+}
+
+Node Node::operator-(const Node &ref){
+	Node n;		
+	n.setData(this->data - ref.data);			
+	return n;
+}
+	
+Node Node::operator*(const Node &ref){
+	Node n;		
+	n.setData(this->data * ref.data);		
+	return n;
+}
+	
+Node Node::operator/(const Node &ref){
+	Node n;		
+	n.setData(this->data / ref.data);			
+	return n;
+ }
 
 void Node::setData(int d){
 	
@@ -45,6 +75,24 @@ void Node::decrementCount(){
 	nodeCount--;
 }
 
+Stack Stack::operator=(const Stack &ref){
+	
+	Stack s;
+	
+	return s;
+}
+
+Stack Stack::operator+(const Stack &ref){
+
+	Stack s;
+	
+	return s;
+
+}
+
+
+
+
 Stack::Stack(){
 
 	top = NULL;
@@ -63,8 +111,8 @@ void Stack::push(int d){
 	
 	top = newNode;
 	
-	
 }
+
 int Stack::pop(){
 	
 	int popThisData;
@@ -87,7 +135,6 @@ int Stack::pop(){
 		return popThisData;
 		
 	}else if(top->getNext()!= NULL){
-
 		Node::decrementCount();
 		Node* temp = top->getNext();
 		popThisData = top->getData();
