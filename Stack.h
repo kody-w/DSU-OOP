@@ -10,7 +10,7 @@ class Node {
 			
 	public:
 	
-		Node operator=(const Node &ref);
+		void operator=(const Node &ref);
 		Node operator+(const Node &ref);
 		Node operator-(const Node &ref);
 		Node operator*(const Node &ref);
@@ -35,7 +35,7 @@ class Stack{
 		int pop();
 		void printStack();
 		
-		Stack operator=(const Stack &ref);
+		void operator=(const Stack &ref);
 		
 		Stack operator+(const Stack &ref);
 		

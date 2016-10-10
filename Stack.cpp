@@ -10,11 +10,10 @@ Node::Node()
 	next = NULL;
 }
 
-Node Node::operator=(const Node &ref){
-	Node n;
-	n.setData(ref.data);
-	n.setNext(NULL);
-	return n;
+void Node::operator=(const Node &ref){
+	
+	this->data = ref.data;
+	this->next = NULL;
 }
 	
 Node Node::operator+(const Node &ref){
@@ -75,23 +74,65 @@ void Node::decrementCount(){
 	nodeCount--;
 }
 
-Stack Stack::operator=(const Stack &ref){
+void Stack::operator=(const Stack &ref){
+	
+	Node* current = ref.top;
+	Node* previous = NULL;
+	Node* newNode = new Node; 
+	newNode->setData(current->getData());
+	newNode->setNext(NULL);
+	previous = newNode;
+	this->top = newNode;
+	current = current->getNext();
+	
+	
+	//this->top = ref.top;
 	
 	Stack s;
+		
+	while(current != NULL){
+		
+		newNode = new Node; 
+		newNode->setData(current->getData());
+		newNode->setNext(NULL);
+		previous->setNext(newNode);
+		previous = newNode;
+		current = current->getNext();
+		
+		/*
+		cout << current->getData() << "\t";
+		s.push(current->getData());
+		
+		cout << "IN COPYING\n\n";
+		
+		current = current->getNext();
+		
+		*/
+		
+	}
 	
-	return s;
+	
 }
 
-Stack Stack::operator+(const Stack &ref){
+Stack Stack::operator+(const Stack& ref){
 
 	Stack s;
 	
+	s.top = ref.top;
+	
+	Node* current = s.top;
+	while(current->getNext() != NULL){
+		
+		current = current->getNext();
+		
+	}
+	
+	current->setNext(this->top);
+
+	
 	return s;
 
 }
-
-
-
 
 Stack::Stack(){
 
